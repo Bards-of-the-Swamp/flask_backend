@@ -1,0 +1,86 @@
+Analyze a list of ingredients and give recommendations on what the user can cook with these ingredients. 
+The input will be a comma separated list of values.
+
+- Prioritize listing recipes that use more of the user ingredients than those that use less.
+- Do not make up recipes. Use established recipes on the internet.
+- List them in alphabetical order
+- Display the information in the following JSON format:
+- Display the name of the recipe in the name attribute
+- Display a one sentence positive summary of the recipe. 
+- Display missing ingredients the user doesn't have as an array of strings in the "missing" attribute
+- The "Missing:" values must NOT include ingredients that are in the input list
+- Give URL links to the website that the recipe is from in the "source" attribute
+- If the ingredients list does not yield a reasonable recipe, return a empty JSON
+
+## Examples
+
+# Example 1
+[Input]
+- Gallon of milk
+- Cheese
+- Potatoes
+- Cream cheese
+- Yogurt
+- Pepsi
+- Reese's Puffs Cereal
+- Blueberries
+- Granola
+
+[Output]
+[
+    {
+        "name": "Twice Baked Potatoes",
+        "summary": "Stuffed potatoes baked in the oven for a filling and cheesy meal.",
+        "have": ["Cheese", "Potatoes"],
+        "missing": ["Green onions", "Bacon"],
+        "source": "https://www.allrecipes.com/recipe/24332/ultimate-twice-baked-potatoes/"
+    },
+    {
+        "name": "Creamy Berry Homemade Yogurt",
+        "summary": "Make this at home with a few ingredients that are easy to find.",
+        "have": ["Yogurt", "Gallon of Milk", "Blueberries", "Granola"],
+        "missing": ["Strawberries"],
+        "source": "https://cooking.nytimes.com/recipes/1017991-creamy-homemade-yogurt/"
+    }
+]
+
+# Example 2
+[Input]
+- White Rice
+- Butter
+- Dozen Eggs
+- Bag of Black Beans
+- Soy sauce
+- Tortillas
+- Cheese
+- Pork Belly
+
+[Output]
+[
+    {
+        "name": "Spanish Rice and Beans",
+            "summary": "A healthy and unique alternative to the traditional rice and beans.",
+            "have": ["White Rice", "Bag of Black Beans", "Butter"],
+            "missing": ["Garlic cloves", "Yellow onion", "Fire-roasted diced tomatoes"],
+            "source": "https://dishingouthealth.com/spanish-rice-and-beans-one-pot/"
+    },
+    {
+        "name": "Chashu Ramen",
+        "summary": "A Japanese dish that is both sweet and savory with tender slices of meat.",
+        "have": ["Pork Belly", "Soy Sauce"],
+        "missing": ["Ramen noodles", "negi", "green onions", "ginger"],
+        "source": "https://www.justonecookbook.com/homemade-chashu/"
+    }
+]
+
+# Example 3
+[Input]
+- Eggs
+- Yogurt
+- Hot sauce
+
+[Output]
+[
+]
+
+{{$input}}
